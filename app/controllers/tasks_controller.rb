@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 
   def update
     @task = @story.tasks.find(params[:id])
-    @task.update_attributes(params[:task])
+    @task.update_attributes(params[:task].permit(:done))
 
     head :ok
   end
